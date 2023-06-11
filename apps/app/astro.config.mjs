@@ -9,9 +9,7 @@ export default defineConfig({
   site: 'https://tour-genie-turbo.vercel.app',
   integrations: [
     react(),
-    tailwind({
-      config: { path: '../../tailwind.config.cjs' },
-    }),
+    tailwind(),
     sitemap({
       filer: (page) => !page.path.includes('404'),
     }),

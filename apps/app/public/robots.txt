@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://https://tour-genie-turbo.vercel.app//sitemap-index.xml
