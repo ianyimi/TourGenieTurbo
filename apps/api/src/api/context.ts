@@ -1,20 +1,20 @@
 import { inferAsyncReturnType } from '@trpc/server';
-import { FetchCreateContextFnOptions } from '@trpc/server/adapters/fetch';
+import * as trpcExpress from '@trpc/server/adapters/express';
 
-type User = {
+export type User = {
   email?: string;
   phone?: string;
 };
 
 export function createRouterContext({
   req,
-  resHeaders,
-}: FetchCreateContextFnOptions) {
+  res,
+}: trpcExpress.CreateExpressContextOptions) {
   const user: User = {
     email: req.headers.get('email') ?? undefined,
     phone: req.headers.get('phone') ?? undefined,
   };
-  return { req, resHeaders, user };
+  return { req, res, user };
 }
 
 export type AppRouterContext = inferAsyncReturnType<typeof createRouterContext>;

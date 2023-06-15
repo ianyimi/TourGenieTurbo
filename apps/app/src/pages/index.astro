@@ -2,11 +2,16 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Provider from '../components/Provider';
 import Hello from '../components/Hello';
+
+import { client } from '../components/server';
+
+const greeting = await client.greeting.query();
 ---
 
 <BaseLayout title="TourGenie">
 	<Provider client:only="react">
 		<h1 class="min-w-20 mx-auto text-blue-500">Astro</h1>
 		<Hello client:only="react" />
+		<p>{greeting}</p>
 	</Provider>
 </BaseLayout>

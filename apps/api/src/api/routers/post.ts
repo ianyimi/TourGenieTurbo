@@ -3,9 +3,9 @@ import { OpenAI } from 'langchain/llms';
 import { PromptTemplate } from 'langchain/prompts';
 import { z } from 'zod';
 
-import { t, publicProcedure } from '../trpc';
+import { router, publicProcedure } from '../server';
 
-export const postRouter = t.router({
+export const postRouter = router({
   hello: publicProcedure.query(() => 'hello tRPC v10!'),
   // all: publicProcedure.query(({ ctx }) => {
   //   return ctx.prisma.post.findMany({ orderBy: { id: 'desc' } });
